@@ -6,7 +6,13 @@ describe Oystercard do
     expect(subject.balance).to eq(0)
   end
 
-  it 'can top-up balance on the card' do
-    expect(subject).to respond_to(:top_up).with(1).argument
+  describe '#top_up' do
+    it 'can respond to top_up' do
+      expect(subject).to respond_to(:top_up).with(1).argument
+    end
+
+    it 'can top_up balance by 1' do
+      expect{ subject.top_up 1 }.to change{ subject.balance }.by 1
+    end
   end
 end
