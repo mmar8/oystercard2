@@ -1,8 +1,12 @@
  require 'oystercard'
 
 describe Oystercard do
+
   it 'checks that a balance is 0' do
-    oystercard = Oystercard.new
-    expect(oystercard.balance).to eq(0)
+    expect(subject.balance).to eq(0)
+  end
+
+  it 'can top-up balance on the card' do
+    expect(subject).to respond_to(:top_up).with(1).argument
   end
 end
